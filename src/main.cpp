@@ -262,29 +262,8 @@ void playGame(ActiveBlock &activeBlock)
 }
 void gameOver()
 {
-//     const char *title = "GAME OVER";
-//     const char *scoreLabel = "FINAL SCORE";
-
-//     int titleFontSize = 50;
-//     int scoreFontSize = 18;
-
-//     int textW = MeasureText(title, titleFontSize);
-//     DrawText(title, BOARD_WIDTH + (INF_AREA / 2) - textW / 2, BOARD_HEIGHT / 2 - titleFontSize, titleFontSize, RAYWHITE);
-
-//     DrawText(
-//         TextFormat("%d", score),
-//         (BOARD_WIDTH / 2) - MeasureText(TextFormat("%d", score), scoreFontSize) / 2,
-//         BOARD_HEIGHT / 2 + titleFontSize,
-//         scoreFontSize,
-//         BLACK);
-//     // DrawText(msg3, BOARD_WIDTH + (INF_AREA/2) - MeasureText(msg3, fs2)/2, BOARD_HEIGHT/2 + 20, fs2, RAYWHITE);
-
-//     const char *msg2 = "Press R to restart";
-//     DrawText(msg2, BOARD_WIDTH + (INF_AREA / 2) - MeasureText(msg2, scoreFontSize) / 2, BOARD_HEIGHT / 2 + 10, scoreFontSize, RAYWHITE);
-//     // Restart
-
- const char* title = "GAME OVER";
-    const char* scoreLabel = "FINAL SCORE";
+    const char *title = "GAME OVER";
+    const char *scoreLabel = "FINAL SCORE";
 
     int titleFontSize = 32;
     int scoreFontSize = 16;
@@ -292,39 +271,35 @@ void gameOver()
     int titleWidth = MeasureText(title, titleFontSize);
     int scoreWidth = MeasureText(scoreLabel, scoreFontSize);
 
-    int centerX = BOARD_WIDTH +( INF_AREA /2);
-    int spaceY = BOARD_WIDTH /2;
+    int centerX = BOARD_WIDTH + (INF_AREA / 2);
+    int spaceY = BOARD_WIDTH / 2;
     DrawText(
         title,
         centerX - titleWidth / 2,
         spaceY,
         titleFontSize,
-        RED
-    );
+        RED);
 
     DrawText(
         scoreLabel,
         centerX - scoreWidth / 2,
-        spaceY + 50 ,
+        spaceY + 50,
         scoreFontSize,
-        DARKGRAY
-    );
+        DARKGRAY);
 
     DrawText(
         TextFormat("%d", score),
         centerX - MeasureText(TextFormat("%d", score), scoreFontSize) / 2,
         spaceY + 100,
         scoreFontSize,
-        BLACK
-    );
+        BLACK);
     DrawText(
-        "Press R to restart",
-        centerX - MeasureText("Press R to restart", 20) / 2,
+        "Press ENTER to restart",
+        centerX - MeasureText("Press ENTER to restart", scoreFontSize) / 2,
         spaceY + 150,
-        20,
-        DARKBLUE
-    );
-    if (IsKeyPressed(KEY_R))
+        scoreFontSize,
+        RED);
+    if (IsKeyPressed(KEY_ENTER))
     {
         fill_n(field, COL_NB * ROW_NB, -1);
         score = 0;
